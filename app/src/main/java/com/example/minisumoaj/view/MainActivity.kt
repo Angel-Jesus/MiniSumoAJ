@@ -86,16 +86,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun hideSystemBars() {
-        val windowInsetsController =
-            ViewCompat.getWindowInsetsController(window.decorView) ?: return
-        // Configure the behavior of the hidden system bars
-        windowInsetsController.systemBarsBehavior =
-            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        // Hide both the status bar and the navigation bar
-        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
-    }
-
     @SuppressLint("ClickableViewAccessibility")
     private fun stateButton(){
 
@@ -175,6 +165,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    private fun hideSystemBars() {
+        val windowInsetsController =
+            ViewCompat.getWindowInsetsController(window.decorView) ?: return
+        // Configure the behavior of the hidden system bars
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        // Hide both the status bar and the navigation bar
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
     }
 
     private val onBackPressedCallBack = object : OnBackPressedCallback(true){
